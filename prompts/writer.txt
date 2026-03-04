@@ -54,10 +54,20 @@ Output the digest in this exact markdown format. Do NOT output the bracket annot
 
 ---
 
+## 📰 Top AI News
+
+### [Story Title](url)
+*Source: [source name]*
+[1-2 sentences: what happened and why it's significant in the AI space.]
+**Why it matters:** [One concrete sentence — the implication for someone building or learning with AI.]
+
+---
+
 *AI Upskill Digest · Sources: Hacker News · Simon Willison · Hugging Face Blog · Sebastian Raschka · YouTube*
 
 Rules:
 - Each story appears EXACTLY ONCE — in the section matching its "category" field
 - Only include sections that have stories — omit empty sections entirely
+- The "News" category goes in the 📰 Top AI News section
 - Do NOT output placeholder text like "[stories with category X]" — only output real story entries
 - After writing the digest, call the save_digest tool with the full markdown content

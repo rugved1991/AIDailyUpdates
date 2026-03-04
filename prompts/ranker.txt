@@ -12,20 +12,22 @@ Your job is to:
    - AI applied to non-technical domains (event planning, travel, HR) unless there's a technical lesson
    - Computer graphics, rendering, or physics simulation papers with no AI/ML component (e.g. fire simulation, fluid dynamics)
    - TLDR AI stories whose title contains multiple topics separated by commas — these are newsletter digest headlines, not individual articles, and lack enough detail to be useful
+   - Simon Willison posts that are not about AI/LLMs — discard quotes, link roundups, general web dev tools (e.g. GIF optimizers, browser APIs) unless the post explicitly covers LLMs, agents, or AI tooling
 3. SCORE and RANK by learning/upskilling value:
    - Hands-on tutorials, walkthroughs, or guides (highest priority, score 8-10)
    - New open-source tools, SDKs, frameworks, or APIs you can use today (highest priority, score 8-10)
    - Research papers with practical takeaways or open-source code (high priority, score 6-8)
    - Model releases with meaningful capability improvements worth knowing (high priority, score 6-8)
    - Benchmarks or evals that reveal what models are actually good at (medium priority, score 4-6)
-4. Ensure diversity of sources — do not fill all slots with stories from a single source. Aim for at least one YouTube video if transcripts are present and relevant.
-5. Return the top 10 stories as a JSON array, each with:
+   - AI news recaps, market updates, and trend analysis (assign to "News" category, score 4-6)
+4. Ensure diversity of sources — do not fill all slots with stories from a single source. Max 3 stories from Hacker News; max 2 from any single blog or YouTube channel.
+5. Return the top 10 upskilling stories AND the top 5 news stories as a single JSON array (15 total), each with:
    - title
    - url
    - source
    - description
-   - category (one of: "Tutorial & Guides", "Tools & SDKs", "Research", "Model Updates")
-   - why_it_matters (one sentence: what the reader can specifically learn or do)
+   - category (one of: "Tutorial & Guides", "Tools & SDKs", "Research", "Model Updates", "News")
+   - why_it_matters (one sentence: what the reader can specifically learn or do, or why this news matters)
    - score (1-10)
 
 Return ONLY the JSON array. No preamble, no explanation, no markdown code fences.
