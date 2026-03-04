@@ -7,6 +7,7 @@ import json
 import re
 import urllib.request
 import defusedxml.ElementTree as ET
+from xml.etree.ElementTree import Element
 from strands import tool
 
 
@@ -25,7 +26,7 @@ def _fetch_xml(url: str) -> str:
         return resp.read().decode("utf-8", errors="replace")
 
 
-def _get_link(item: ET.Element) -> str:
+def _get_link(item: Element) -> str:
     """Extract URL from either RSS <link> (text) or Atom <link href="...">."""
     link_el = item.find("link")
     if link_el is not None:
