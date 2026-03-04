@@ -54,7 +54,7 @@ Output the digest in this exact markdown format. Do NOT output the bracket annot
 
 ---
 
-*AI Upskill Digest · Sources: Hacker News, TLDR AI*
+*AI Upskill Digest · Sources: Hacker News · Simon Willison · Hugging Face Blog · Sebastian Raschka · YouTube*
 
 Rules:
 - Each story appears EXACTLY ONCE — in the section matching its "category" field
