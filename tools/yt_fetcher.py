@@ -28,6 +28,7 @@ YOUTUBE_CHANNELS = {
     "Yannic Kilcher":    "@YannicKilcher",
     "AI Explained":      "@aiexplained",
     "Two Minute Papers": "@TwoMinutePapers",
+    "AI Daily Brief":    "@AIDailyBrief",
 }
 
 _YT_API_BASE = "https://www.googleapis.com/youtube/v3"
