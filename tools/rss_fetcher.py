@@ -55,7 +55,7 @@ def _parse_feed(xml_text: str, source_name: str, max_items: int = 8) -> list[dic
 
     stories = []
     for item in items[:max_items]:
-        title_el = item.find("title")
+        title_el = item.find("title") or item.find("atom:title", ATOM_NS)
         desc_el = (item.find("description")
                    or item.find("atom:summary", ATOM_NS)
                    or item.find("atom:content", ATOM_NS))

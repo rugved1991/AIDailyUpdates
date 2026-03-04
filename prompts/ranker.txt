@@ -10,6 +10,7 @@ Your job is to:
    - Pure opinion/hype with no actionable content
    - Vague product announcements with no technical detail
    - AI applied to non-technical domains (event planning, travel, HR) unless there's a technical lesson
+   - Computer graphics, rendering, or physics simulation papers with no AI/ML component (e.g. fire simulation, fluid dynamics)
    - TLDR AI stories whose title contains multiple topics separated by commas — these are newsletter digest headlines, not individual articles, and lack enough detail to be useful
 3. SCORE and RANK by learning/upskilling value:
    - Hands-on tutorials, walkthroughs, or guides (highest priority, score 8-10)
