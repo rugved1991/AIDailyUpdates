@@ -274,8 +274,7 @@ without cloud inference costs.
 *Source: AI Daily Brief*
 Covers the rapid acceleration in agentic AI capabilities across major labs
 in February 2026 and what shifted in the market.
-**Why it matters:** Understanding this shift helps you prioritize which
-agentic frameworks and APIs are worth investing time in now.
+**Takeaway:** Agentic AI frameworks (LangGraph, CrewAI, Strands) are now the focus of major lab investment — worth prioritizing over raw model benchmarks when deciding what to learn next.
 ```
 
 ---
@@ -321,7 +320,7 @@ Find a channel's handle by visiting it on YouTube — it's the `@name` in the UR
 | **Total LLM** | **~$0.003** | **~$0.09** |
 | Anthropic Haiku (alternative) | ~$0.004 | ~$0.12 |
 | Ollama local | $0.00 | $0.00 |
-| YouTube Data API | $0.00 | $0.00 (free tier: 10k units/day, uses ~6) |
+| YouTube Data API | $0.00 | $0.00 (free tier: 10k units/day, uses ~8) |
 
 ---
 

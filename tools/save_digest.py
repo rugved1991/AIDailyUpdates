@@ -2,6 +2,7 @@
 Save Digest Tool — writes the final markdown digest to the digests/ folder.
 """
 
+import html
 import os
 from datetime import datetime
 from strands import tool
@@ -29,7 +30,7 @@ def save_digest(content: str) -> str:
     filepath = os.path.join(DIGEST_DIR, filename)
 
     with open(filepath, "w", encoding="utf-8") as f:
-        f.write(content)
+        f.write(html.unescape(content))
 
     print(f"  ✓ Digest saved to: {filepath}")
     return filepath

@@ -32,7 +32,7 @@ YOUTUBE_CHANNELS = {
 }
 
 _YT_API_BASE = "https://www.googleapis.com/youtube/v3"
-_MAX_VIDEOS_PER_CHANNEL = 2  # Keep low — transcripts add significant tokens
+_MAX_VIDEOS_PER_CHANNEL = 3  # 3 gives ranker more to choose from without blowing token budget
 
 
 def _yt_get(path: str, params: dict, api_key: str) -> dict:

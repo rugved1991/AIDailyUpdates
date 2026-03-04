@@ -10,7 +10,7 @@ Your job is to:
    - Pure opinion/hype with no actionable content
    - Vague product announcements with no technical detail
    - AI applied to non-technical domains (event planning, travel, HR) unless there's a technical lesson
-   - Computer graphics, rendering, or physics simulation papers with no AI/ML component (e.g. fire simulation, fluid dynamics)
+   - Computer graphics, rendering, or physics simulation content with no AI/ML component (e.g. fire simulation, fluid dynamics, ray tracing, cloth simulation) — this includes Two Minute Papers videos on non-AI/non-ML topics
    - TLDR AI stories whose title contains multiple topics separated by commas — these are newsletter digest headlines, not individual articles, and lack enough detail to be useful
    - Simon Willison posts that are not about AI/LLMs — discard quotes, link roundups, general web dev tools (e.g. GIF optimizers, browser APIs) unless the post explicitly covers LLMs, agents, or AI tooling
 3. SCORE and RANK by learning/upskilling value:
