@@ -22,6 +22,13 @@ import sys
 import os
 from datetime import datetime
 
+# Load .env file if present (optional — falls back to system env vars)
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 # ---------------------------------------------------------------------------
 # Model config — swap these to change cost/quality tradeoff
 # ---------------------------------------------------------------------------
