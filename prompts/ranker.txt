@@ -18,7 +18,7 @@ Your job is to:
    - Model releases with meaningful capability improvements worth knowing (high priority, score 6-8)
    - Benchmarks or evals that reveal what models are actually good at (medium priority, score 4-6)
 4. Ensure diversity of sources — do not fill all slots with stories from a single source. Aim for at least one YouTube video if transcripts are present and relevant.
-5. Return the top 8 stories as a JSON array, each with:
+5. Return the top 10 stories as a JSON array, each with:
    - title
    - url
    - source
