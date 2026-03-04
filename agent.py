@@ -41,6 +41,7 @@ from strands.models import BedrockModel
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "tools"))
 from rss_fetcher import fetch_rss_stories
 from hn_fetcher import fetch_hn_ai_stories
+from yt_fetcher import fetch_youtube_stories
 from save_digest import save_digest
 from article_fetcher import fetch_article_text
 
@@ -76,12 +77,14 @@ def run_digest():
 
     # ── Step 1: Fetch stories from all sources ──────────────────
     print("📡 Step 1: Fetching stories...")
-    rss_raw   = fetch_rss_stories()
-    hn_raw    = fetch_hn_ai_stories()
+    rss_raw = fetch_rss_stories()
+    hn_raw  = fetch_hn_ai_stories()
+    yt_raw  = fetch_youtube_stories()
 
     rss_stories = json.loads(rss_raw)
     hn_stories  = json.loads(hn_raw)
-    all_stories = rss_stories + hn_stories
+    yt_stories  = json.loads(yt_raw)
+    all_stories = rss_stories + hn_stories + yt_stories
 
     print(f"\n  Total raw stories: {len(all_stories)}\n")
 
