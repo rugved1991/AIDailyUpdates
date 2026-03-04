@@ -1,0 +1,24 @@
+# Generated output
+digests/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Environment / credentials
+.env
+*.env
+.aws/
+credentials
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+run.log
