@@ -59,7 +59,7 @@ Output the digest in this exact markdown format. Do NOT output the bracket annot
 ### [Story Title](url)
 *Source: [source name]*
 [1-2 sentences: what happened and why it's significant in the AI space.]
-**Why it matters:** [One concrete sentence — the implication for someone building or learning with AI.]
+**Takeaway:** [One concrete sentence — what the reader should know, watch out for, or do differently as a result of this news.]
 
 ---
 
@@ -67,7 +67,7 @@ Output the digest in this exact markdown format. Do NOT output the bracket annot
 
 Rules:
 - Each story appears EXACTLY ONCE — in the section matching its "category" field
-- Only include sections that have stories — omit empty sections entirely
+- If a section has NO stories assigned to it, skip it completely — do NOT write the section heading, do NOT write placeholder text like "There are no X listed for today"
 - The "News" category goes in the 📰 Top AI News section
-- Do NOT output placeholder text like "[stories with category X]" — only output real story entries
+- Do NOT output placeholder text of any kind
 - After writing the digest, call the save_digest tool with the full markdown content

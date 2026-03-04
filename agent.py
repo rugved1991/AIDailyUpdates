@@ -121,10 +121,30 @@ STORIES:
 
     try:
         ranked_stories = json.loads(ranked_text)
-        print(f"  ✓ Ranked {len(ranked_stories)} stories\n")
+        print(f"  ✓ Ranked {len(ranked_stories)} stories")
     except json.JSONDecodeError:
         print("  ⚠ Could not parse ranked JSON — using raw stories for writing")
         ranked_stories = all_stories[:10]
+
+    # Enforce source diversity caps that the model tends to ignore:
+    # - Max 3 stories from Hacker News
+    # - Max 2 stories from any other single source
+    # News and upskilling stories are capped separately to keep both sections populated.
+    def _apply_diversity_caps(stories: list[dict]) -> list[dict]:
+        source_counts: dict[str, int] = {}
+        result = []
+        for story in stories:
+            source = story.get("source", "")
+            cap = 3 if source == "Hacker News" else 2
+            if source_counts.get(source, 0) < cap:
+                result.append(story)
+                source_counts[source] = source_counts.get(source, 0) + 1
+        return result
+
+    news_stories = [s for s in ranked_stories if s.get("category") == "News"]
+    upskill_stories = [s for s in ranked_stories if s.get("category") != "News"]
+    ranked_stories = _apply_diversity_caps(upskill_stories) + _apply_diversity_caps(news_stories)
+    print(f"  After diversity caps: {len(upskill_stories)} upskilling + {len(news_stories)} news\n")
 
     # ── Step 2.5: Enrich stories with article content ───────────
     # Excerpts are trimmed to 600 chars before passing to the writer to avoid
