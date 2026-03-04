@@ -127,10 +127,12 @@ STORIES:
         ranked_stories = all_stories[:10]
 
     # ── Step 2.5: Enrich stories with article content ───────────
+    # Excerpts are trimmed to 600 chars before passing to the writer to avoid
+    # overwhelming Nova Lite's tool-call generation with a 15-story prompt.
     print("🌐 Step 2.5: Fetching article content...")
     for story in ranked_stories:
         url = story.get("url", "")
-        content = fetch_article_text(url)
+        content = fetch_article_text(url, max_chars=600)
         if content:
             story["article_excerpt"] = content
             print(f"  ✓ {story.get('title', '')[:55]}")
