@@ -1,0 +1,3 @@
+strands-agents==1.28.0
+strands-agents-tools==0.2.21
+defusedxml==0.7.1
