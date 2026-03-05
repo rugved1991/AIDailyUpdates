@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🧠 AI Upskill Digest — March 04, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0f1117;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 40px auto;
+      padding: 0 20px 60px;
+    }
+
+    /* Header */
+    .header {
+      border-bottom: 1px solid #2d3748;
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+
+    .header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #f7fafc;
+      letter-spacing: -0.3px;
+    }
+
+    .header .tagline {
+      margin-top: 6px;
+      color: #718096;
+      font-size: 13px;
+    }
+
+    .header .date-badge {
+      display: inline-block;
+      margin-top: 10px;
+      background: #1a202c;
+      border: 1px solid #2d3748;
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 12px;
+      color: #a0aec0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 36px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #4a5568;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #1e2533;
+    }
+
+    /* Story card */
+    .story {
+      background: #161b27;
+      border: 1px solid #1e2533;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 10px;
+      transition: border-color 0.15s;
+    }
+
+    .story:hover {
+      border-color: #3a4a6b;
+    }
+
+    .story-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #90cdf4;
+      text-decoration: none;
+      line-height: 1.4;
+    }
+
+    .story-title:hover {
+      color: #bee3f8;
+      text-decoration: underline;
+    }
+
+    .story-source {
+      font-size: 11px;
+      color: #4a5568;
+      margin-top: 4px;
+      margin-bottom: 10px;
+    }
+
+    .story-summary {
+      font-size: 14px;
+      color: #a0aec0;
+      line-height: 1.6;
+    }
+
+    .story-takeaway {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #0d1117;
+      border-left: 3px solid #3182ce;
+      border-radius: 0 6px 6px 0;
+      font-size: 13px;
+      color: #e2e8f0;
+    }
+
+    .story-takeaway strong {
+      color: #63b3ed;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    /* Section accent colors */
+    .tutorials .story-takeaway  { border-left-color: #48bb78; }
+    .tutorials .story-takeaway strong { color: #68d391; }
+
+    .tools .story-takeaway      { border-left-color: #ed8936; }
+    .tools .story-takeaway strong { color: #fbd38d; }
+
+    .research .story-takeaway   { border-left-color: #9f7aea; }
+    .research .story-takeaway strong { color: #d6bcfa; }
+
+    .models .story-takeaway     { border-left-color: #f56565; }
+    .models .story-takeaway strong { color: #feb2b2; }
+
+    /* Footer */
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #1e2533;
+      font-size: 11px;
+      color: #4a5568;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <div class="header">
+      <h1>🧠 AI Upskill Digest</h1>
+      <p class="tagline">What to learn and build with AI today.</p>
+      <span class="date-badge">March 04, 2026</span>
+    </div>
+
+    <!-- Tutorials & Guides -->
+    <div class="section tutorials">
+      <div class="section-label">📚 Tutorials &amp; Guides</div>
+
+      <div class="story">
+        <a class="story-title" href="https://huggingface.co/blog/Photoroom/prx-part3">
+          PRX Part 3 — Training a Text-to-Image Model in 24h!
+        </a>
+        <p class="story-source">Source: Hugging Face Blog</p>
+        <p class="story-summary">
+          Covers how Photoroom trained a production-quality diffusion model using perceptual
+          losses and token routing within a strict 24-hour compute budget.
+        </p>
+        <div class="story-takeaway">
+          <strong>Takeaway</strong>
+          Use their training recipe as a template for fine-tuning image models on a tight budget.
+        </div>
+      </div>
+
+      <div class="story">
+        <a class="story-title" href="https://simonwillison.net/2026/Mar/3/tool-use-patterns/">
+          Practical Patterns for LLM Tool Use
+        </a>
+        <p class="story-source">Source: Simon Willison</p>
+        <p class="story-summary">
+          Walks through retry logic, error surfacing, and result truncation when building
+          agents that call external tools — using Python and the Anthropic SDK as examples.
+        </p>
+        <div class="story-takeaway">
+          <strong>Takeaway</strong>
+          Add a <code>max_retries=2</code> wrapper around every tool call to handle transient failures without killing the agent loop.
+        </div>
+      </div>
+    </div>
+
+    <!-- Tools & SDKs -->
+    <div class="section tools">
+      <div class="section-label">🛠️ Tools &amp; SDKs</div>
+
+      <div class="story">
+        <a class="story-title" href="https://github.com/awslabs/strands-agents">
+          Strands Agents — Lightweight Multi-Agent Framework by AWS
+        </a>
+        <p class="story-source">Source: Hacker News</p>
+        <p class="story-summary">
+          Strands lets you compose agents with decorated Python functions as tools, supporting
+          Bedrock, Anthropic, and Ollama backends with no config files.
+        </p>
+        <div class="story-takeaway">
+          <strong>Takeaway</strong>
+          Run <code>pip install strands-agents</code> and decorate any function with <code>@tool</code> to give an agent access to it in under 10 lines.
+        </div>
+      </div>
+    </div>
+
+    <!-- Research Worth Reading -->
+    <div class="section research">
+      <div class="section-label">🔬 Research Worth Reading</div>
+
+      <div class="story">
+        <a class="story-title" href="https://magazine.sebastianraschka.com/p/llm-evaluation-4-approaches">
+          Understanding the 4 Main Approaches to LLM Evaluation
+        </a>
+        <p class="story-source">Source: Sebastian Raschka</p>
+        <p class="story-summary">
+          Breaks down multiple-choice benchmarks, verifier-based evaluation, leaderboards,
+          and LLM-as-judge — explaining when each is appropriate and where each misleads.
+        </p>
+        <div class="story-takeaway">
+          <strong>Takeaway</strong>
+          Use LLM-as-judge for open-ended outputs, verifiers for math/code, benchmarks only for rough capability comparisons.
+        </div>
+      </div>
+    </div>
+
+    <!-- Model Updates -->
+    <div class="section models">
+      <div class="section-label">🚀 Model Updates</div>
+
+      <div class="story">
+        <a class="story-title" href="https://www.anthropic.com/news/claude-haiku-4-5">
+          Claude Haiku 4.5 — Faster, Cheaper Tool Use
+        </a>
+        <p class="story-source">Source: Hacker News</p>
+        <p class="story-summary">
+          Haiku 4.5 cuts latency by ~30% on tool-call-heavy workloads compared to Haiku 3,
+          with the same 200k context window and improved instruction following.
+        </p>
+        <div class="story-takeaway">
+          <strong>Takeaway</strong>
+          Swap <code>claude-haiku-3</code> for <code>claude-haiku-4-5-20251001</code> in any agent loop — same cost, meaningfully faster responses.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      AI Upskill Digest &nbsp;·&nbsp; Sources: Hacker News, Simon Willison, Hugging Face Blog, Sebastian Raschka
+    </div>
+
+  </div>
+</body>
+</html>

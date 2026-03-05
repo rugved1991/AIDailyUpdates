@@ -51,6 +51,7 @@ from hn_fetcher import fetch_hn_ai_stories
 from yt_fetcher import fetch_youtube_stories
 from save_digest import save_digest
 from article_fetcher import fetch_article_text
+from email_digest import send_digest_email
 
 
 def load_prompt(name: str) -> str:
@@ -175,12 +176,22 @@ Write the full digest in the required markdown format, then call save_digest wit
 """
     writer(write_prompt)
 
-    # ── Done ────────────────────────────────────────────────────
+    # ── Step 4: Email the digest ────────────────────────────────
     digest_path = os.path.join(
         os.path.dirname(__file__),
         "digests",
         f"digest-{datetime.now().strftime('%Y-%m-%d')}.md"
     )
+
+    print("📧 Step 4: Emailing digest...")
+    if os.path.exists(digest_path):
+        with open(digest_path, encoding="utf-8") as f:
+            md_content = f.read()
+        send_digest_email(md_content)
+    else:
+        print("  ⚠ Digest file not found — skipping email")
+
+    # ── Done ────────────────────────────────────────────────────
     print(f"\n{'='*55}")
     print(f"  ✅ Done! Digest saved to:")
     print(f"     {digest_path}")

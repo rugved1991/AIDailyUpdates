@@ -18,7 +18,8 @@ AIDailyUpdates/
 │   ├── hn_fetcher.py         # Fetches Hacker News via Algolia API
 │   ├── yt_fetcher.py         # Fetches YouTube videos + transcripts
 │   ├── article_fetcher.py    # Fetches full article text for richer summaries
-│   └── save_digest.py        # Writes markdown digest to digests/
+│   ├── save_digest.py        # Writes markdown digest to digests/
+│   └── email_digest.py       # Converts digest to styled HTML and emails it
 ├── prompts/
 │   ├── ranker.txt            # Prompt for filtering + ranking agent
 │   └── writer.txt            # Prompt for digest writer agent
@@ -131,13 +132,30 @@ from strands.models.ollama import OllamaModel
 model = OllamaModel(host="http://localhost:11434", model_id="llama3.2")
 ```
 
-### 4. Run it
+### 4. Set up email delivery (optional)
+
+The digest is automatically emailed as a styled HTML newsletter after each run.
+
+Add these three lines to your `.env`:
+
+```env
+EMAIL_TO=you@example.com
+SMTP_USER=you@gmail.com
+SMTP_PASSWORD=xxxx-xxxx-xxxx-xxxx
+```
+
+> **Gmail users:** you must use an [App Password](https://myaccount.google.com/apppasswords), not your account password.
+> App Passwords require 2-Step Verification to be enabled on your Google account.
+
+If any of these are missing, the email step is silently skipped and the digest is still saved locally.
+
+### 5. Run it
 
 ```bash
 python agent.py
 ```
 
-Your digest will be saved to `digests/digest-YYYY-MM-DD.md`.
+Your digest will be saved to `digests/digest-YYYY-MM-DD.md` and emailed if configured.
 
 ---
 
@@ -147,32 +165,34 @@ Your digest will be saved to `digests/digest-YYYY-MM-DD.md`.
 
 ```bash
 crontab -e
-# Add this line to run every morning at 7am:
-0 7 * * * cd /path/to/AIDailyUpdates && python agent.py >> /path/to/AIDailyUpdates/run.log 2>&1
+# Add this line to run every morning at 9am:
+0 9 * * * cd /path/to/AIDailyUpdates && python agent.py >> /path/to/AIDailyUpdates/run.log 2>&1
 ```
 
-### Windows — Task Scheduler
+### Windows — Task Scheduler (PowerShell)
 
-1. Open **Task Scheduler** → Create Basic Task
-2. Set trigger: **Daily** at your preferred time
-3. Set action: **Start a program**
-   - Program: `python`
-   - Arguments: `agent.py`
-   - Start in: `C:\path\to\AIDailyUpdates`
-4. Click Finish
-
-Or use PowerShell to create the task:
 ```powershell
-$action = New-ScheduledTaskAction -Execute "python" -Argument "agent.py" -WorkingDirectory "C:\path\to\AIDailyUpdates"
-$trigger = New-ScheduledTaskTrigger -Daily -At "7:00AM"
+$action = New-ScheduledTaskAction `
+    -Execute "python" `
+    -Argument "agent.py" `
+    -WorkingDirectory "C:\Users\sadis\Documents\Workspace\AIDailyUpdates"
+$trigger = New-ScheduledTaskTrigger -Daily -At "9:00AM"
 Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "AIDailyDigest"
 ```
+
+Or manually via the UI:
+1. Open **Task Scheduler** → Create Basic Task
+2. Trigger: **Daily** at **9:00 AM**
+3. Action: **Start a program**
+   - Program: `python`
+   - Arguments: `agent.py`
+   - Start in: `C:\Users\sadis\Documents\Workspace\AIDailyUpdates`
 
 ### AWS Lambda + EventBridge (serverless)
 
 Package the project into a Lambda function and trigger with EventBridge:
 ```
-cron(0 7 * * ? *)
+cron(0 9 * * ? *)
 ```
 
 ---
@@ -307,7 +327,7 @@ Find a channel's handle by visiting it on YouTube — it's the `@name` in the UR
 
 **Change digest style** — edit `prompts/writer.txt` to change tone, sections, or format.
 
-**Add email delivery** — after the writer saves the digest, read it and send via Gmail MCP or SMTP.
+**Disable email delivery** — remove or comment out the `send_digest_email` call at the bottom of `run_digest()` in `agent.py`.
 
 ---
 
